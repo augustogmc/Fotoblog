@@ -124,6 +124,7 @@ main h1 {
     object-fit: cover;
 
     transition: all 0.5s ease-out;
+    display: block;
 }
 
 .item img:hover {
@@ -161,3 +162,31 @@ footer p{
     padding: 1.6rem;
 }
 
+header {
+    --startY: -100%;
+    animation: move .5s;
+}
+
+footer {
+    --startY: 100%;
+    animation: move .4s;
+}
+
+.item {
+    --delay:.4s;
+    animation: appear .5s var(--delay) backwards;
+
+}
+
+@keyframes move {
+    from {
+        transform: translateY(var(--startY))
+    }
+}
+
+@keyframes appear {
+    0% {
+        opacity: 0;
+        transform: scale(0.7);
+    }
+}
